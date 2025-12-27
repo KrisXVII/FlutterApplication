@@ -91,6 +91,26 @@ class _MyHomePageState extends State<MyHomePage> {
         child: Column(
           mainAxisAlignment: .center,
           children: [
+            // const Image(image: AssetImage("images/phil-harvey-M3g33c6jVZ8-unsplash.jpg")),
+            SizedBox(
+              width: 200,
+              height: 320,
+              child: Image.asset(
+                "images/phil-harvey-M3g33c6jVZ8-unsplash.jpg",
+                fit: BoxFit.contain,
+                alignment: Alignment.topCenter,
+              ),
+            ),
+            // Image.network(
+            //     "https://images.unsplash.com/photo-1766221072212-cf2f9383221c?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHx0b3BpYy1mZWVkfDEwfGJvOGpRS1RhRTBZfHxlbnwwfHx8fHw%3D",
+            //   height: 100,
+            //   width: 200,
+            // ),
+            const Text('You have pushed the button this many times:'),
+            Text(
+              '$_counter',
+              style: Theme.of(context).textTheme.headlineMedium,
+            ),
             TextButton(onPressed: () {}, child: const Text("Holy shi")),
             TextButton.icon(
               onPressed: () {},
@@ -121,11 +141,6 @@ class _MyHomePageState extends State<MyHomePage> {
             OutlinedButton(
               onPressed: () {},
               child: const Text("Grab a snickers"),
-            ),
-            const Text('You have pushed the button this many times:'),
-            Text(
-              '$_counter',
-              style: Theme.of(context).textTheme.headlineMedium,
             ),
           ],
         ),
