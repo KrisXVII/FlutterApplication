@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 
 void main() {
   runApp(const MyApp());
@@ -12,24 +13,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Flutter Demo',
-      theme: ThemeData(
-        // This is the theme of your application.
-        //
-        // TRY THIS: Try running your application with "flutter run". You'll see
-        // the application has a purple toolbar. Then, without quitting the app,
-        // try changing the seedColor in the colorScheme below to Colors.green
-        // and then invoke "hot reload" (save your changes or press the "hot
-        // reload" button in a Flutter-supported IDE, or press "r" if you used
-        // the command line to start the app).
-        //
-        // Notice that the counter didn't reset back to zero; the application
-        // state is not lost during the reload. To reset the state, use hot
-        // restart instead.
-        //
-        // This works for code too, not just values: Most code changes can be
-        // tested with just a hot reload.
-        colorScheme: .fromSeed(seedColor: Colors.deepPurple),
-      ),
+      theme: ThemeData(colorScheme: .fromSeed(seedColor: Colors.orange)),
       home: const MyHomePage(title: 'Flutter Demo Home Page'),
     );
   }
@@ -77,33 +61,67 @@ class _MyHomePageState extends State<MyHomePage> {
     // than having to individually change instances of widgets.
     return Scaffold(
       appBar: AppBar(
-        // TRY THIS: Try changing the color here to a specific color (to
-        // Colors.amber, perhaps?) and trigger a hot reload to see the AppBar
-        // change color while the other colors stay the same.
+        // automaticallyImplyLeading: false,
+        // leading: Icon(Icons.offline_bolt),
         backgroundColor: Theme.of(context).colorScheme.inversePrimary,
-        // Here we take the value from the MyHomePage object that was created by
-        // the App.build method, and use it to set our appbar title.
         title: Text(widget.title),
+        // value from MyHomePage set in App.build
+        // centerTitle: true, // Center the title
+        actions: [
+          Icon(Icons.abc),
+          IconButton(
+            onPressed: () => print("deprint"),
+            icon: const Icon(Icons.access_alarm),
+          ),
+        ],
+        // foregroundColor: Colors.red,
+        elevation: 50,
+        // systemOverlayStyle: SystemUiOverlayStyle.light, // dark or light mode
+        shadowColor: Colors.orange,
+        toolbarHeight: 100,
+        // height of the component
+        titleTextStyle: TextStyle(
+          fontSize: 25,
+          fontWeight: FontWeight.bold,
+        ), // Change text style
       ),
       body: Center(
         // Center is a layout widget. It takes a single child and positions it
         // in the middle of the parent.
         child: Column(
-          // Column is also a layout widget. It takes a list of children and
-          // arranges them vertically. By default, it sizes itself to fit its
-          // children horizontally, and tries to be as tall as its parent.
-          //
-          // Column has various properties to control how it sizes itself and
-          // how it positions its children. Here we use mainAxisAlignment to
-          // center the children vertically; the main axis here is the vertical
-          // axis because Columns are vertical (the cross axis would be
-          // horizontal).
-          //
-          // TRY THIS: Invoke "debug painting" (choose the "Toggle Debug Paint"
-          // action in the IDE, or press "p" in the console), to see the
-          // wireframe for each widget.
           mainAxisAlignment: .center,
           children: [
+            TextButton(onPressed: () {}, child: const Text("Holy shi")),
+            TextButton.icon(
+              onPressed: () {},
+              label: const Text("Africa"),
+              icon: const Icon(Icons.airplane_ticket),
+            ),
+            ElevatedButton(
+              onPressed: () {},
+              // style: ButtonStyle( // uses state buttons
+              //   overlayColor: WidgetStateProperty.resolveWith((states) {
+              //     if (states.contains(WidgetState.focused)) {
+              //       return Colors.lime;
+              //     } else if (states.contains(WidgetState.hovered)) {
+              //       return Colors.tealAccent;
+              //     } else if (states.contains(WidgetState.pressed)) {
+              //       return Colors.yellow;
+              //     } else {
+              //       return Colors.teal;
+              //     }
+              //   }),
+              // ),
+              style: ElevatedButton.styleFrom(
+                foregroundColor: Colors.teal,
+                padding: const EdgeInsets.symmetric(vertical: 20, horizontal: 25)
+              ),
+              child: const Text("Elevated Button"),
+            ),
+            OutlinedButton(
+              onPressed: () {},
+              child: const Text("Grab a snickers"),
+            ),
             const Text('You have pushed the button this many times:'),
             Text(
               '$_counter',
